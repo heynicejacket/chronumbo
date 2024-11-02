@@ -1,4 +1,5 @@
 import pandas as pd
+# import pymsql               # must be installed for MySQL
 import sqlalchemy
 
 from chronodetective.core.constants import (
@@ -22,7 +23,7 @@ def create_engine(db, dialect, user, password, endpoint, mssql_driver=17, fast_e
     The function returns a SQLAlchemy engine object for database interactions.
 
     :param db:                  str, required           database name
-    :param dialect:             str, required           'postgres', 'mysql', or 'mssql'; database type
+    :param dialect:             str, required           database type; 'postgres', 'mysql', or 'mssql'
     :param user:                str, required           database username
     :param password:            str, required           database password
     :param endpoint:            str, required           server hostname or IP address where database is hosted
