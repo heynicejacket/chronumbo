@@ -1,5 +1,3 @@
-import pandas as pd
-
 from chronodetective.core.sql import (
     create_engine,
     db_to_df
