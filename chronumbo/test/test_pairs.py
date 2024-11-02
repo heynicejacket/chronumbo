@@ -1,9 +1,9 @@
-from chronodetective.core.sql import (
+from chronumbo.core.sql import (
     create_engine,
     db_to_df
 )
 
-from chronodetective.main import (
+from chronumbo.main import (
     add_event_delta_paired
 )
 

@@ -2,7 +2,7 @@ import pandas as pd
 # import pymsql               # must be installed for MySQL
 import sqlalchemy
 
-from chronodetective.core.constants import (
+from chronumbo.core.constants import (
     DTYPE_MAPPING
 )
 
