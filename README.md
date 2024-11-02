@@ -11,7 +11,8 @@ Because there's always just one more thing being asked by a client.
 ## Basic Implentation
 
 ```
-engine = create_engine(                                         # create SQL connection engine
+# create SQL connection engine
+engine = create_engine(
     db=db,
     dialect=dialect,
     user=user,
@@ -20,13 +21,15 @@ engine = create_engine(                                         # create SQL con
     verbose=verbose
 )
 
-df = db_to_df(                                                  # create DataFrame from SQL query
+# create DataFrame from SQL query
+df = db_to_df(
     query=audit_query,
     engine=engine,
     verbose=verbose
 )
 
-df_sorted = df.sort_values(by=[id_field, event_date_field])     # sort by IDs and date
+# sort by IDs and date
+df_sorted = df.sort_values(by=[id_field, event_date_field])
 ```
 
 ### add_event_delta_single()
