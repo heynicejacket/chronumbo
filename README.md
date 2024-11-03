@@ -1,12 +1,10 @@
 ![chronumbo](https://github.com/heynicejacket/chronumbo/blob/master/chronumbo-banner.png)
 
-There were too many GitHub repos named "timecop", and when providing reporting to clients, there's always just one more thing.
-
-# chronumbo
+There were already too many GitHub repos named "timecop", and when providing reporting to clients, there's always just one more thing.
 
 ## Why?
 
-In reporting on KPIs and other project management metrics, internally and to clients, it is common to report trends, histograms, and averages of durations between project phases or other tasks. This repo provides a single-function to intake a DataFrame and conditions to track start and end points, and report time deltas back to the user.
+In reporting on KPIs and other project management metrics, internally and to clients, it is common to report trends, histograms, and averages of durations between project phases or other tasks. This repo provides a single function to intake a DataFrame and conditions to track start and end points, and report time deltas back to the user.
 
 `chronumbo` comes in two flavours:
 
