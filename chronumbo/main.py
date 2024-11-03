@@ -155,8 +155,9 @@ def add_event_delta_single(df, col_prefix, id_field, date_field, start_condition
         100041       2023-09-29 17:04:22   Correspondence  Updated        start            <-- if first start condition
         100041       2023-09-30 17:04:22   Assigned        mrunde
         100041       2023-10-01 15:13:18   Correspondence  Updated        start            <-- if latest start condition
+        100041       2023-10-01 17:01:04   Correspondence  Updated
         100041       2023-10-01 20:44:45   Status          Resolved                end     <-- if first end condition
-        100041       2023-10-16 17:04:22   Assigned        fstein
+        100041       2023-10-16 17:04:22   Assigned        hjones
         100041       2023-12-04 19:58:08   Status          Resolved                end     <-- if latest end condition
 
     If conditions are missing, by default there will be no start and/or end, and no calculation will take place. If
@@ -170,13 +171,13 @@ def add_event_delta_single(df, col_prefix, id_field, date_field, start_condition
 
         project_id   event_date            event           description    start      end
         -----------  --------------------  --------------  -------------  ---------  -----
-        100041       2023-09-27 22:54:41   Status          Pending Order  start-na           <-- first event, assumed start
-        100041       2023-09-29 17:04:22   Correspondence  Updated
-        100041       2023-09-30 17:04:22   Assigned        mrunde
-        100041       2023-10-01 15:13:18   Correspondence  Updated
-        100041       2023-10-01 20:44:45   Status          On Hold
-        100041       2023-10-16 17:04:22   Assigned        fstein
-        100041       2023-12-04 19:58:08   Status          Ordered                   end-na  <-- latest event, assumed end
+        100042       2023-09-27 22:54:41   Status          Pending Order  start-na           <-- first event, assumed start
+        100042       2023-09-29 17:04:22   Correspondence  Updated
+        100042       2023-09-30 17:04:22   Assigned        mrunde
+        100042       2023-10-01 15:13:18   Correspondence  Updated
+        100042       2023-10-01 20:44:45   Status          On Hold
+        100042       2023-10-16 17:04:22   Assigned        hjones
+        100042       2023-12-04 19:58:08   Status          Ordered                   end-na  <-- latest event, assumed end
 
     end event (or based on user-defined criteria). Optionally, if no matching conditions are found, the earliest date
     for start and latest date for end can be used, with 'start-na' and 'end-na' flags.
@@ -266,15 +267,15 @@ def add_event_delta_paired(df, col_prefix, id_field, date_field, start_condition
 
         project_id   event_date            event           is_employee    start    end
         -----------  --------------------  --------------  -------------  -------  -----
-        100041       2023-09-27 22:54:41   Status          Created
-        100041       2023-09-29 17:04:22   Correspondence  True           start            <-- start condition
-        100041       2023-09-30 17:04:22   Correspondence  True
-        100041       2023-10-01 15:13:18   Correspondence  False                   end     <-- end condition
-        100041       2023-10-01 20:44:45   Correspondence  False
-        100041       2023-10-16 17:04:22   Correspondence  False
-        100041       2023-10-19 21:13:01   Correspondence  True           start            <-- start condition
-        100041       2023-10-24 19:23:44   Correspondence  True
-        100041       2023-12-03 23:28:19   Correspondence  False                   end     <-- end condition
+        100043       2023-09-27 22:54:41   Status          Created
+        100043       2023-09-29 17:04:22   Correspondence  True           start            <-- start condition
+        100043       2023-09-30 17:04:22   Correspondence  True
+        100043       2023-10-01 15:13:18   Correspondence  False                   end     <-- end condition
+        100043       2023-10-01 20:44:45   Correspondence  False
+        100043       2023-10-16 17:04:22   Correspondence  False
+        100043       2023-10-19 21:13:01   Correspondence  True           start            <-- start condition
+        100043       2023-10-24 19:23:44   Correspondence  True
+        100043       2023-12-03 23:28:19   Correspondence  False                   end     <-- end condition
 
     :param df:                  df, required        DataFrame containing event data
     :param col_prefix:          str, required       prefix for new column names that will be added to DataFrame
