@@ -1,0 +1,28 @@
+project_id,event_date,event,description,alias,is_employee
+100041,9/27/2023 22:54,Status,Created,cmarlow,FALSE
+100041,9/29/2023 17:04,Correspondence,Updated,mrunde,TRUE
+100041,9/30/2023 17:04,Assigned,mrunde,mrunde,TRUE
+100041,10/1/2023 15:13,Correspondence,Updated,mrunde,TRUE
+100041,10/1/2023 17:01,Correspondence,Updated,cmarlow,FALSE
+100041,10/1/2023 20:44,Status,Resolved,mrunde,TRUE
+100041,10/16/2023 16:39,Status,In Progress,mrunde,TRUE
+100041,10/16/2023 17:04,Assigned,hconway,mrunde,TRUE
+100041,12/4/2023 19:58,Status,Resolved,hconway,TRUE
+100042,9/27/2023 22:54,Status,Pending Order,mrunde,TRUE
+100042,9/29/2023 17:04,Correspondence,Updated,mrunde,TRUE
+100042,9/30/2023 17:04,Assigned,mrunde,mrunde,TRUE
+100042,10/1/2023 15:13,Correspondence,Updated,mrunde,TRUE
+100042,10/1/2023 20:44,Status,On Hold,mrunde,TRUE
+100042,10/16/2023 17:04,Assigned,hconway,mrunde,TRUE
+100042,12/4/2023 19:58,Status,Ordered,hconway,TRUE
+10042,12/19/2024 15:23,Status,Resolved,hconway,TRUE
+100043,9/27/2023 22:54,Status,Created,flory,FALSE
+100043,9/29/2023 17:04,Correspondence,Updated,mrunde,TRUE
+100043,9/30/2023 17:04,Correspondence,Updated,mrunde,TRUE
+100043,10/1/2023 15:13,Correspondence,Updated,flory,FALSE
+100043,10/1/2023 20:44,Correspondence,Updated,flory,FALSE
+100043,10/16/2023 17:04,Correspondence,Updated,flory,FALSE
+100043,10/19/2023 21:13,Correspondence,Updated,mrunde,TRUE
+100043,10/24/2023 19:23,Correspondence,Updated,mrunde,TRUE
+100043,12/3/2023 23:28,Correspondence,Updated,flory,FALSE
+100043,12/4/2023 5:14,Status,Cancelled,mrunde,TRUE
