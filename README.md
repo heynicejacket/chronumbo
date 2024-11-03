@@ -1,4 +1,4 @@
-![chronumbo](https://github.com/heynicejacket/chronodetective/blob/master/chronumbo-banner.png)
+![chronumbo](https://github.com/heynicejacket/chronumbo/blob/master/chronumbo-banner.png)
 
 There were too many github repos named "timecop", and when providing reporting to clients, there's always just one more thing.
 
@@ -27,7 +27,7 @@ While some terminology is fairly universal, many terms are infinitely varied acr
 
 The test dataset `../chronumbo/test/project-event-log.csv` represents an Event Log table, and contains the following fields:
 
-![ project_id | event_date | event | description | alias | is_employee |](https://github.com/heynicejacket/chronodetective/blob/master/chronumbo-test-csv-headers.png)
+![ project_id | event_date | event | description | alias | is_employee |](https://github.com/heynicejacket/chronumbo/blob/master/chronumbo-test-csv-headers.png)
 
 Event logs produced by most tools will have a similar structure, and is fairly straightforward data structure to replicate for those tools that do not produce such logs explicitly (e.g. Google Sheets, Smartsheet, etc.).
 
@@ -85,7 +85,7 @@ For `both add_event_delta_single()` and `add_event_delta_pairs()`, given `col_pr
 🚨 _See [Issue #4](https://github.com/heynicejacket/chronumbo/issues/4); it may be best to include optional sorting inside the function. This may be added in the future._
 
 ### add_event_delta_single()
-<center>![chronumbo single pair](https://github.com/heynicejacket/chronodetective/blob/master/chronumbo-single-pair.png)</center>
+<center>![chronumbo single pair](https://github.com/heynicejacket/chronumbo/blob/master/chronumbo-single-pair.png)</center>
 
 To find the time delta between a single starting event and a single ending event, use `add_event_delta_single()`. This is useful in determining the time it takes for a project to be completed, or between stages of a project.
 
@@ -109,7 +109,7 @@ final_kpi_single_df = add_event_delta_single(
 ```
 
 ### add_event_delta_pairs()
-<center>![chronumbo multi pair](https://github.com/heynicejacket/chronodetective/blob/master/chronumbo-multi-pair.png)</center>
+<center>![chronumbo multi pair](https://github.com/heynicejacket/chronumbo/blob/master/chronumbo-multi-pair.png)</center>
 
 To find each time delta between a series of start and end events, use `add_event_delta_pairs()`. This is useful in determining the average time of recurring events, like responding to customer correspondence and project manager's response.
 
