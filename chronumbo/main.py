@@ -157,7 +157,7 @@ def add_event_delta_single(df, col_prefix, id_field, date_field, start_condition
         100041       2023-10-01 15:13:18   Correspondence  Updated        start            <-- if latest start condition
         100041       2023-10-01 17:01:04   Correspondence  Updated
         100041       2023-10-01 20:44:45   Status          Resolved                end     <-- if first end condition
-        100041       2023-10-16 17:04:22   Assigned        hjones
+        100041       2023-10-16 17:04:22   Assigned        hconway
         100041       2023-12-04 19:58:08   Status          Resolved                end     <-- if latest end condition
 
     If conditions are missing, by default there will be no start and/or end, and no calculation will take place. If
@@ -176,7 +176,7 @@ def add_event_delta_single(df, col_prefix, id_field, date_field, start_condition
         100042       2023-09-30 17:04:22   Assigned        mrunde
         100042       2023-10-01 15:13:18   Correspondence  Updated
         100042       2023-10-01 20:44:45   Status          On Hold
-        100042       2023-10-16 17:04:22   Assigned        hjones
+        100042       2023-10-16 17:04:22   Assigned        hconway
         100042       2023-12-04 19:58:08   Status          Ordered                   end-na  <-- latest event, assumed end
 
     end event (or based on user-defined criteria). Optionally, if no matching conditions are found, the earliest date
