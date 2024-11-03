@@ -140,7 +140,7 @@ def add_event_delta_single(df, col_prefix, id_field, date_field, start_condition
                            start_at_earliest=True, end_at_latest=True, use_earliest_if_no_start=False,
                            use_latest_if_no_end=False):
     """
-    Given an audit trail DataFrame (see below for definition of "audit trail"), adds columns to DataFrame to calculate
+    Given an event log DataFrame (see below for example "event log" structure), adds columns to DataFrame to calculate
     time delta between specific start and end events for each group, defined by an identifier field (e.g. project_no).
 
     The function tracks start and end events based on a dictionary of conditions, marks them with labels identifying
@@ -165,9 +165,9 @@ def add_event_delta_single(df, col_prefix, id_field, date_field, start_condition
     assumed start or end points.
 
     If the metric to be measured is the time from a project's start to completion, and the project management system
-    normally produces 'Created' as the start of a project, and 'Resolved' as the end of a project, if the audit trail
+    normally produces 'Created' as the start of a project, and 'Resolved' as the end of a project, if the event log
     of a given project does not have these events, it may be assumed that the earliest and latest events in the
-    project's audit trail might stand in, as follows:
+    project's event log might stand in, as follows:
 
         project_id   event_date            event           description    start      end
         -----------  --------------------  --------------  -------------  ---------  -----
