@@ -149,15 +149,15 @@ def add_event_delta_single(df, col_prefix, id_field, date_field, start_condition
     By default, the function looks for earliest start and latest end of given criteria. Given a DataFrame and default
     parameters, if looking for the delta between correspondence and project resolution, as follows:
 
-        case_id   event_date            event           description    start    end
-        --------  --------------------  --------------  -------------  -------  -----
-        100041    2023-09-27 22:54:41   Status          Created
-        100041    2023-09-29 17:04:22   Correspondence  Updated        start            <-- if first start condition
-        100041    2023-09-30 17:04:22   Assigned        mrunde
-        100041    2023-10-01 15:13:18   Correspondence  Updated        start            <-- if latest start condition
-        100041    2023-10-01 20:44:45   Status          Resolved                end     <-- if first end condition
-        100041    2023-10-16 17:04:22   Assigned        fstein
-        100041    2023-12-04 19:58:08   Status          Resolved                end     <-- if latest end condition
+        project_id   event_date            event           description    start    end
+        -----------  --------------------  --------------  -------------  -------  -----
+        100041       2023-09-27 22:54:41   Status          Created
+        100041       2023-09-29 17:04:22   Correspondence  Updated        start            <-- if first start condition
+        100041       2023-09-30 17:04:22   Assigned        mrunde
+        100041       2023-10-01 15:13:18   Correspondence  Updated        start            <-- if latest start condition
+        100041       2023-10-01 20:44:45   Status          Resolved                end     <-- if first end condition
+        100041       2023-10-16 17:04:22   Assigned        fstein
+        100041       2023-12-04 19:58:08   Status          Resolved                end     <-- if latest end condition
 
     If conditions are missing, by default there will be no start and/or end, and no calculation will take place. If
     use_earliest_if_no_start or use_latest_if_no_end are set to True, the earliest and latest dates will be used as
@@ -168,15 +168,15 @@ def add_event_delta_single(df, col_prefix, id_field, date_field, start_condition
     of a given project does not have these events, it may be assumed that the earliest and latest events in the
     project's audit trail might stand in, as follows:
 
-        case_id   event_date            event           description    start      end
-        --------  --------------------  --------------  -------------  ---------  -----
-        100041    2023-09-27 22:54:41   Status          Pending Order  start-na         <-- first event, assumed start
-        100041    2023-09-29 17:04:22   Correspondence  Updated
-        100041    2023-09-30 17:04:22   Assigned        mrunde
-        100041    2023-10-01 15:13:18   Correspondence  Updated
-        100041    2023-10-01 20:44:45   Status          On Hold
-        100041    2023-10-16 17:04:22   Assigned        fstein
-        100041    2023-12-04 19:58:08   Status          Ordered                   end-na  <-- latest event, assumed end
+        project_id   event_date            event           description    start      end
+        -----------  --------------------  --------------  -------------  ---------  -----
+        100041       2023-09-27 22:54:41   Status          Pending Order  start-na           <-- first event, assumed start
+        100041       2023-09-29 17:04:22   Correspondence  Updated
+        100041       2023-09-30 17:04:22   Assigned        mrunde
+        100041       2023-10-01 15:13:18   Correspondence  Updated
+        100041       2023-10-01 20:44:45   Status          On Hold
+        100041       2023-10-16 17:04:22   Assigned        fstein
+        100041       2023-12-04 19:58:08   Status          Ordered                   end-na  <-- latest event, assumed end
 
     end event (or based on user-defined criteria). Optionally, if no matching conditions are found, the earliest date
     for start and latest date for end can be used, with 'start-na' and 'end-na' flags.
@@ -206,7 +206,7 @@ def add_event_delta_single(df, col_prefix, id_field, date_field, start_condition
     df[[start_col, end_col, delta_col, delta_sec_col]] = None
 
     # group by id_field to handle each group separately
-    for case_id, group in df.groupby(id_field):
+    for project_id, group in df.groupby(id_field):
         start_time, end_time = None, None
         start_row_idx, end_row_idx = None, None
         latest_idx = None
@@ -264,17 +264,17 @@ def add_event_delta_paired(df, col_prefix, id_field, date_field, start_condition
     Given a DataFrame and default parameters, if looking for the delta between employee and customer correspondence,
     as follows:
 
-        case_id   event_date            event           is_employee    start    end
-        --------  --------------------  --------------  -------------  -------  -----
-        100041    2023-09-27 22:54:41   Status          Created
-        100041    2023-09-29 17:04:22   Correspondence  True           start            <-- start condition
-        100041    2023-09-30 17:04:22   Correspondence  True
-        100041    2023-10-01 15:13:18   Correspondence  False                   end     <-- end condition
-        100041    2023-10-01 20:44:45   Correspondence  False
-        100041    2023-10-16 17:04:22   Correspondence  False
-        100041    2023-10-19 21:13:01   Correspondence  True           start            <-- start condition
-        100041    2023-10-24 19:23:44   Correspondence  True
-        100041    2023-12-03 23:28:19   Correspondence  False                   end     <-- end condition
+        project_id   event_date            event           is_employee    start    end
+        -----------  --------------------  --------------  -------------  -------  -----
+        100041       2023-09-27 22:54:41   Status          Created
+        100041       2023-09-29 17:04:22   Correspondence  True           start            <-- start condition
+        100041       2023-09-30 17:04:22   Correspondence  True
+        100041       2023-10-01 15:13:18   Correspondence  False                   end     <-- end condition
+        100041       2023-10-01 20:44:45   Correspondence  False
+        100041       2023-10-16 17:04:22   Correspondence  False
+        100041       2023-10-19 21:13:01   Correspondence  True           start            <-- start condition
+        100041       2023-10-24 19:23:44   Correspondence  True
+        100041       2023-12-03 23:28:19   Correspondence  False                   end     <-- end condition
 
     :param df:                  df, required        DataFrame containing event data
     :param col_prefix:          str, required       prefix for new column names that will be added to DataFrame
@@ -294,7 +294,7 @@ def add_event_delta_paired(df, col_prefix, id_field, date_field, start_condition
     df[[delta_col, delta_sec_col]] = None
 
     # group by id_field to handle each group separately
-    for case_id, group in df.groupby(id_field):
+    for project_id, group in df.groupby(id_field):
         start_time = None
         start_idx = None
 
