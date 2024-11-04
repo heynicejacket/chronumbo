@@ -1,6 +1,6 @@
 ![chronumbo](https://github.com/heynicejacket/chronumbo/blob/master/chronumbo-banner.png)
 
-There were already too many GitHub repos named "timecop", and when providing reporting to clients, there's always just one more thing.
+Because there were already too many GitHub repos named "timecop", and when providing reporting to clients, there's always just one more thing.
 
 ## Why?
 
